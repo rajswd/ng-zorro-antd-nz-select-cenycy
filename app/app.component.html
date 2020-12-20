@@ -1,19 +1,10 @@
 <h1>{{ name }}</h1>
-<nz-select 
-  style="width: 200px;"
-  nzAllowClear
-  [nzPlaceHolder]="'选择用户'"
-  [(ngModel)]="customerObj"
-  (ngModelChange)="changeCustomer($event)"
-  [nzShowSearch]="true">
-  <nz-option class="payee-blk" [nzLabel]="payeeLabel" nzValue=""   
-  [nzDisabled]="onPayeeSelection"></nz-option>
-  <nz-option
-    *ngFor="let option of customers"
-    [nzLabel]="option.name"
-    [nzValue]="option">
-  </nz-option>
+<nz-select style="width: 200px;" nzAllowClear [nzPlaceHolder]="'Search'" [(ngModel)]="customerObj"
+	(ngModelChange)="changeCustomer($event)" [nzShowSearch]="true">
+	<nz-option class="payee-blk" [nzLabel]="payeeLabel" nzValue="" [nzDisabled]="onPayeeSelection"></nz-option>
+	<nz-option *ngFor="let option of customers" [nzLabel]="option.name" [nzValue]="option">
+	</nz-option>
 </nz-select>
-<div>{{customerObj.age}}</div>
-<div>{{customerObj.sex}}</div>
-<div>{{customerObj.mark}}</div>
+<div>{{customerObj?.age}}</div>
+<div>{{customerObj?.sex}}</div>
+<div>{{customerObj?.mark}}</div>
